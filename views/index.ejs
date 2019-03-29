@@ -6,33 +6,24 @@
   <body>
     <div class="container-fluid">
       <div class="d-flex flex-column align-items-center justify-content-center w-100" style="height:100vh;">
-        <h1>Chapter form</h1>
-        <form class="d-flex flex-column card w-50" method="post" action="/api/chapters" >
-          <div class="card-body">
-            <div class="form-group">
-              <label>Title</label>
-              <input name="title" class="form-control" type="text" />
-            </div>
-            <div class="form-group">
-              <label>nbrOfLesson</label>
-              <input name="nbrOfLesson" class="form-control" type="number" />
-            </div>
-            <div class="form-group">
-              <input name="active" class="form-checkbox-control" type="checkbox" id="active" />
-              <label class="form-check-label" for="active">active</label>
-            </div>
-              <% if (locals.errors && errors && errors.length) { %>
-                <ul>
-                  <% errors.forEach((error) => { %>
-                    <li><%= error %></li>
-                  <% }) %>
-                </ul>
-              <% } %>
-            <div>
-              <input type="submit" value="Submit" class="btn btn-primary" />
-            </div>
-          </div>
-        </form>
+        <h1>Liste des chapitres</h1>
+        <div class="d-flex flex-row">
+          <% if (chapters && chapters.length) { %>
+            <% chapters.forEach((chapter) => { %>
+              <div class="card mr-4"  style="width: 18rem;">
+                  <div class="card-body">
+                    <h4 class="card-title"><%= chapter.title %></h4>
+                    <p class="card-text">Number of lessons: <%= chapter.nbrOfLesson %></p>
+                    <a href="/chapters/delete/<%= chapter._id %>" class="btn btn-danger">Delete</a>
+                    <a href="/chapters/<%= chapter._id %>" class="btn btn-primary">Details</a>
+                  </div>
+              </div>
+            <% }) %>
+          <% } %>
+        </div>
+        <div class="mt-4">
+          <a href="/chapters/add" class="btn btn-primary">Add Chapter</a>
+        </div>
       </div>
     </div>
   </body>

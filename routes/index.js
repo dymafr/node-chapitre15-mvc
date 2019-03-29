@@ -3,11 +3,10 @@ const chapterRoutes = require('./chapters');
 
 const router = express.Router();
 
-router.use('/chapter', chapterRoutes);
-
+router.use('/chapters', chapterRoutes);
 
 router.get('/',  (req, res) => {
-  res.render('index');
-})
+  res.redirect('/chapters');
+});
 
 module.exports = router;
