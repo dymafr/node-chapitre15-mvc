@@ -4,17 +4,19 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon --env-file=.env app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^3.1.8",
-    "express": "^4.18.2",
-    "mongoose": "^6.7.3",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.20",
-    "pug": "^3.0.2"
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.9.2",
+    "morgan": "^1.11.0",
+    "pug": "^3.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
